@@ -13,26 +13,28 @@ export default function NameScreen() {
 		return /^[a-zA-z]*$/g.test(text)
 	}
 
-	return <SafeAreaView style={{flex: 1,}}>
-		<KeyboardAvoidingView style={{flex: 1, justifyContent: 'center',}} behavior="padding" enabled>
-			<ScrollView
-				contentContainerStyle={{
-					flex: 1
-				}}
-				style={{flex: 1}}>
-				<Form
-					validator={validator}
-					onSubmit={(text) => {
-						dispatch(addFromList(text, 'name'));
+	return (
+		<SafeAreaView style={{flex: 1,}}>
+			<KeyboardAvoidingView style={{flex: 1, justifyContent: 'center',}} behavior="padding" enabled>
+				<ScrollView
+					contentContainerStyle={{
+						flex: 1
 					}}
-					label={'Enter the Name of your close friend'}></Form>
-				<Form
-					validator={validator}
-					onSubmit={(text) => {
-						dispatch(addFromList(text, 'animals'))
-					}}
-					label={"Enter the Animal you want as a pet"}></Form>
-			</ScrollView>
-		</KeyboardAvoidingView>
-	</SafeAreaView>;
+					style={{flex: 1}}>
+					<Form
+						validator={validator}
+						onSubmit={(text) => {
+							dispatch(addFromList(text, 'name'));
+						}}
+						label={'Enter the Name of your close friend'}></Form>
+					<Form
+						validator={validator}
+						onSubmit={(text) => {
+							dispatch(addFromList(text, 'animals'))
+						}}
+						label={"Enter the Animal you want as a pet"}></Form>
+				</ScrollView>
+			</KeyboardAvoidingView>
+		</SafeAreaView>
+	);
 }
